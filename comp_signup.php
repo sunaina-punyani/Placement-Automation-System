@@ -21,24 +21,21 @@
 
     if(isset($_POST['submit'])){
       //grab data
-      $id=mysqli_real_escape_string($dbc, trim($_POST['id']));
-      $first_name=mysqli_real_escape_string($dbc, trim($_POST['first_name']));
-      $last_name=mysqli_real_escape_string($dbc, trim($_POST['last_name']));
+     
+      $name=mysqli_real_escape_string($dbc, trim($_POST['name']));
+      $username=mysqli_real_escape_string($dbc, trim($_POST['username']));
       $password1=mysqli_real_escape_string($dbc, trim($_POST['password1']));
       $password2=mysqli_real_escape_string($dbc, trim($_POST['password2']));
+      $info=mysqli_real_escape_string($dbc, trim($_POST['info']));
+      $category=mysqli_real_escape_string($dbc, trim($_POST['category']));
       $email=mysqli_real_escape_string($dbc, trim($_POST['email']));
-      $contact=mysqli_real_escape_string($dbc, trim($_POST['contact']));
-      $programme=mysqli_real_escape_string($dbc, trim($_POST['programme']));
-      $year=mysqli_real_escape_string($dbc, trim($_POST['year']));
-      $branch=mysqli_real_escape_string($dbc, trim($_POST['branch']));
-    
 
-      if(!empty($first_name) && !empty($last_name) && !empty($email) && !empty($password1) && !empty($password2) && !empty($id) && !empty($year) && !empty($programme) && !empty($branch))
+      if(!empty($name) && !empty($username) && !empty($email) && !empty($password1) && !empty($password2)  && !empty($info) && !empty($category))
       {
 
         //to check if someone isnt registered with same email
 
-        $query="SELECT id FROM user WHERE email = '$email' ";
+        $query="SELECT id FROM company WHERE email = '$email' ";
         $result=mysqli_query($dbc,$query);
         if(mysqli_num_rows($result)==0)
         {
@@ -51,16 +48,15 @@
           }
           else if(!filter_var($email,FILTER_VALIDATE_EMAIL))
             $err_msg='Email provided is invalid';
-          else if(!validate_contact($contact))
-            $err_msg='Contact number is invalid';
+         
           // else if(!validate_name($first_name) || validate_name($last_name))
           //   $err_msg="Name is invalid";
           else {
-            $first_name=ucfirst(strtolower($first_name));
-            $last_name=ucfirst(strtolower($lst_name));
+            $name=ucfirst(strtolower($name));
+            
             $password=password_hash($password1,PASSWORD_BCRYPT);
 
-            $query="INSERT INTO user (id,password,email,first_name,last_name,contact,programme,year,branch) VALUES ($id,'$password','$email','$first_name','$last_name','$contact','$programme','$year','$branch')";
+            $query="INSERT INTO company (username,password,name,info,email,category) VALUES ('$username','$password','$name','$info','$email','$category')";
             
             if(mysqli_query($dbc,$query))
             {
@@ -74,7 +70,7 @@
         }
         else
         {
-          $err_msg = 'The email id has been used. Choose another one.';
+          $err_msg = 'The email id has been used. Choose another one. ';
         }
 
       }
@@ -94,12 +90,6 @@
   //
   // }
 
-function validate_contact($contact) {
-    if (preg_match('/^[789]\d{9}$/', $contact))
-      return true;
-
-    return false;
-  }
 
 function validate_name($name) {
     return preg_match("/^[a-zA-Z'-]+$/", $name);
@@ -122,17 +112,17 @@ function validate_name($name) {
             <p>&nbsp;
             <?php echo $err_msg; ?>&nbsp;</p>
           </div>
-          <label for="name">First Name:</label>
-          <input type="text" id="name"  name="first_name" required value="<?php if(isset($first_name)) echo $first_name; ?>">
+          <label for="name">Name:</label>
+          <input type="text" id="name"  name="name" required value="<?php if(isset($name)) echo $name; ?>">
 
-          <label for="name">Last Name:</label>
-          <input type="text" id="name"  name="last_name" required value="<?php if(isset($last_name)) echo $last_name; ?>">
+          <label for="name">User-name:</label>
+          <input type="text" id="name"  name="username" required value="<?php if(isset($username)) echo $username; ?>">
 
           <label for="mail">Email:</label>
           <input type="email" id="email" name="email" required value="<?php if(isset($email)) echo $email; ?>">
 
-          <label for="mail">Contat Number:</label>
-          <input type="number" id="contact" name="contact" required value="<?php if(isset($contact)) echo $contact; ?>">
+          <label for="info">Info:</label>
+          <input type="text" id="name" name="info" required value="<?php if(isset($info)) echo $info; ?>">
 
           <label for="password">Password:</label>
           <input type="password" name="password1" id="password" required>
@@ -140,25 +130,11 @@ function validate_name($name) {
           <label for="password">Confirm Password:</label>
           <input type="password" name="password2" id="password" required>
 
-
+          <label for="name">Category:</label>
+          <input type="text" id="programme"   name="category" required value="<?php if(isset($category)) echo $category; ?>">
         </fieldset>
 
-        <fieldset>
-          <legend><span class="number">2</span>Your profile</legend>
-
-          <label for="name">ID:</label>
-          <input type="text" id="id"  placeholder="identity number" name="id" required value="<?php if(isset($id)) echo $id; ?>">
-
-          <label for="name">Programme:</label>
-          <input type="text" id="programme"  placeholder="eg. BTech" name="programme" required value="<?php if(isset($programme)) echo $programme; ?>">
-
-          <label for="name">Year:</label>
-          <input type="text" id="year"  placeholder="current academic year" name="year" required value="<?php if(isset($year)) echo $year; ?>">
-
-          <label for="name">Branch:</label>
-          <input type="text" id="branch"  placeholder="branch" name="branch" required value="<?php if(isset($branch)) echo $branch; ?>">
-
-        </fieldset>
+        
 
 
         <button type="submit" name="submit">Sign Up</button>
