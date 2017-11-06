@@ -36,21 +36,21 @@
 					<div class="flex ">
 
 						<div>
-							<span class="icon fa-user"></span>
+							<a href="signintemp/admin_signin.php"><span class="icon fa-user"></span></a>
 							<h3>TPO Incharge</h3>
-							<p>Suspendisse amet ullamco</p>
+							<a href="admin_signup.php"><p>Admin Sign Up</p></a>
 						</div>
 
 						<div>
-							<span class="icon fa-graduation-cap"></span>
+							<a href="signintemp/stud_signin.php"><span class="icon fa-graduation-cap"></span></a>
 							<h3>Student</h3>
-							<p>Class aptent taciti ad litora</p>
+							<a href="stud_signup.php"><p>Student Sign Up</p></a>
 						</div>
 
 						<div>
-							<span class="icon fa-briefcase"></span>
+							<a href="signintemp/company_signin.php"><span class="icon fa-briefcase"></span></a>
 							<h3>Company</h3>
-							<p>Nulla vitae mauris non felis</p>
+							<a href="comp_signup.php"><p>Company Sign Up</p></a>
 						</div>
 
 					</div>

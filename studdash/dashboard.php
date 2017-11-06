@@ -4,8 +4,12 @@
   // if(!isset($_SESSION['id'])) {
   //   header('Location: ../signintemp/stud_signin.php');
   // }
-
+  $id = $_SESSION['id'];
   $query = "SELECT * FROM job_post WHERE timestamp >= DATE_SUB(NOW(), INTERVAL 1 MONTH)";
+  if(isset($_GET['view']) && $_GET['view']=='old')
+    $query = "SELECT * FROM application, job_post WHERE application.stud_id = $id AND application.post_id = job_post.id ORDER BY application.timestamp DESC";
+
+    //echo $query;
   $result = mysqli_query($dbc,$query);
 
 ?>
@@ -42,12 +46,12 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Home
+              <a class="nav-link" href="dashboard.php?view=new">Job Posts
                 <span class="sr-only">(current)</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
+              <a class="nav-link" href="dashboard.php?view=old">My Applications</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Services</a>
@@ -68,28 +72,50 @@
         <!-- Blog Entries Column -->
         <div class="col-md-8">
 
-          <h1 class="my-4">Page Heading
-            <small>Secondary Text</small>
+          <h1 class="my-4">Job Posts
+            <!-- <small>Secondary Text</small> -->
           </h1>
 
           <?php
-            if (mysqli_num_rows($result) != 0) {
-            while ($row = mysqli_fetch_array($result)) { ?>
-              <div class="card mb-4">
-                <!-- <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap"> -->
-                <div class="card-body">
-                  <h2 class="card-title"><?php echo $row['title']; ?></h2>
-                  <p class="card-text"><?php echo $row['details']; ?></p>
-                  <a href="#" class="btn btn-primary">Read More &rarr;</a>
+            if(isset($_GET['view']) && $_GET['view']=='old') {
+              if (mysqli_num_rows($result) != 0) {
+              while ($row = mysqli_fetch_array($result)) { ?>
+                <div class="card mb-4">
+                  <!-- <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap"> -->
+                  <div class="card-body">
+                    <h2 class="card-title"><?php echo $row['title']; ?></h2>
+                    <p class="card-text"><?php echo $row['details']; ?></p>
+                    <a href="#" class="btn btn-primary">Read More &rarr;</a>
+                  </div>
+                  <!-- <div class="card-footer text-muted"> -->
+                    <!-- Posted on January 1, 2017 -->
+                    <!-- <a href="#">Start Bootstrap</a> -->
+                  <!-- </div> -->
                 </div>
-                <!-- <div class="card-footer text-muted"> -->
-                  <!-- Posted on January 1, 2017 -->
-                  <!-- <a href="#">Start Bootstrap</a> -->
-                <!-- </div> -->
-              </div>
-          <?php
+            <?php
+              }
             }
-          } ?>
+            } else {
+              if (mysqli_num_rows($result) != 0) {
+              while ($row = mysqli_fetch_array($result)) { ?>
+                <div class="card mb-4">
+                  <!-- <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap"> -->
+                  <div class="card-body">
+                    <h2 class="card-title"><?php echo $row['title']; ?></h2>
+                    <p class="card-text"><?php echo $row['details']; ?></p>
+                    <a href="#" class="btn btn-primary">Read More &rarr;</a>
+                  </div>
+                  <!-- <div class="card-footer text-muted"> -->
+                    <!-- Posted on January 1, 2017 -->
+                    <!-- <a href="#">Start Bootstrap</a> -->
+                  <!-- </div> -->
+                </div>
+            <?php
+              }
+            }
+            }
+           ?>
+
 
 
 
@@ -121,29 +147,7 @@
             </div>
           </div> -->
 
-          <!-- Categories Widget -->
-          <div class="card my-4">
-            <h5 class="card-header">Categories</h5>
-            <div class="card-body">
-              <div class="row">
-                <div class="col-lg-6">
-                  <ul class="list-unstyled mb-0">
-                    <li>
-                      <a href="#">Job Postings</a>
-                    </li>
 
-                  </ul>
-                </div>
-                <div class="col-lg-6">
-                  <ul class="list-unstyled mb-0">
-                    <li>
-                      <a href="#">My Applications</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
 
           <!-- Side Widget -->
           <!-- <div class="card my-4">

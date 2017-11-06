@@ -2,6 +2,7 @@
 
 	// connect to database
 	require_once(__DIR__ . '/../includes/dbconfig.php');
+	session_start();
 
 	// if the user isn't logged in, try to login
 	if (!isset($_SESSION['id'])) {
@@ -25,6 +26,7 @@
 						//$verified = $row['verified'];
 						// if ($verified) {
 							$_SESSION['id'] = $row['id'];
+							//echo $_SESSION['id'];
 							$_SESSION['first_name'] = $row['first_name'];
 							$_SESSION['last_name'] = $row['last_name'];
 							// check if the user is a manager
