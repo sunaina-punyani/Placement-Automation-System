@@ -6,6 +6,7 @@
 
 	// if the user isn't logged in, try to login
 	if (!isset($_SESSION['id'])) {
+		//echo "safcd";
 		// if the user tried to login
 		if (isset($_POST['submit'])) {
 
@@ -36,7 +37,7 @@
 								// $row = mysqli_fetch_array($result);
 								// $_SESSION['manager_id'] = $row['manager_id'];
 							//}
-							header('Location: public/dashboard.php');
+							header('Location: ../studdash/dashboard.php');
 						// }
 						// else {
 						// 	// account is not activated yet
@@ -53,11 +54,11 @@
 				$err_msg = "E-mail or password missing.";
 		}
 	}
-	/*
+
 	else {
 		// user is logged in do redirect to dashboard
-		header('Location: public/dashboard.php');
-	}*/
+		header('Location: ../studdash/dashboard.php');
+	}
 ?>
 
 <!DOCTYPE html>
@@ -101,7 +102,7 @@
 			</div>
 			<button type="submit" name="submit" class="btn btn-lg btn-block btn-success">SIGN IN</button>
 			<section>
-				Not a member? <a href="#">Sign up now <span>&rarr;</span></a>
+				Not a member? <a href="../stud_signup.php">Sign up now <span>&rarr;</span></a>
 			</section>
 		</form>
 	</section>
