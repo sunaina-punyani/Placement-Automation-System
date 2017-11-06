@@ -22,7 +22,7 @@
 				$query = "INSERT INTO job_post (company_id, title, details, eligibility, purpose, package, contact_email) VALUES ($company_id, '$title', '$details', '$eligibility', '$purpose', $package, '$contact_email')";
         //echo $query;
 				mysqli_query($dbc, $query) or die(mysqli_error($dbc));
-        header('Location: public/dashboard.php');
+        header('Location: ../compdash/dashboard.php');
 
 			}
 			else

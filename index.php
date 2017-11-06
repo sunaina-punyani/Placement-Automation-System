@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Projection by TEMPLATED</title>
+		<title>TPO</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -30,7 +30,7 @@
 			<section id="banner">
 				<div class="inner">
 					<header>
-						<h1>Welcome to Projection</h1>
+						<h1>Welcome to TPO</h1>
 					</header>
 
 					<div class="flex ">
