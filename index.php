@@ -36,20 +36,20 @@
 					<div class="flex ">
 
 						<div>
-							<span class="icon fa-car"></span>
-							<h3>Aliquam</h3>
+							<span class="icon fa-user"></span>
+							<h3>TPO Incharge</h3>
 							<p>Suspendisse amet ullamco</p>
 						</div>
 
 						<div>
 							<span class="icon fa-graduation-cap"></span>
-							<h3>Elementum</h3>
+							<h3>Student</h3>
 							<p>Class aptent taciti ad litora</p>
 						</div>
 
 						<div>
-							<span class="icon fa-bug"></span>
-							<h3>Ultrices</h3>
+							<span class="icon fa-briefcase"></span>
+							<h3>Company</h3>
 							<p>Nulla vitae mauris non felis</p>
 						</div>
 
