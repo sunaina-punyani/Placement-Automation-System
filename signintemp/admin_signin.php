@@ -2,6 +2,7 @@
 
 	// connect to database
 	require_once(__DIR__ . '/../includes/dbconfig.php');
+	session_start();
 
 	// if the user isn't logged in, try to login
 	if (!isset($_SESSION['admin_id'])) {

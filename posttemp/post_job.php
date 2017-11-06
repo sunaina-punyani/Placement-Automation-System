@@ -3,6 +3,7 @@
 		// user is a manager
 
     require_once(__DIR__ . '/../includes/dbconfig.php');
+    session_start();
 
 		if (isset($_POST['submit'])) {
       echo "submit pressed";
@@ -13,11 +14,13 @@
 			$purpose = mysqli_real_escape_string($dbc, trim($_POST['purpose']));
 			$package = mysqli_real_escape_string($dbc, trim($_POST['package']));
 			$contact_email = mysqli_real_escape_string($dbc, trim($_POST['contact_email']));
+      $company_id = $_SESSION['company_id'];
 
 			if (!empty($title) && !empty($details) && !empty($eligibility) && !empty($purpose) && !empty($package) && !empty($contact_email)) {
 
 				$company_id = $_SESSION['company_id'];
 				$query = "INSERT INTO job_post (company_id, title, details, eligibility, purpose, package, contact_email) VALUES ($company_id, '$title', '$details', '$eligibility', '$purpose', $package, '$contact_email')";
+        //echo $query;
 				mysqli_query($dbc, $query) or die(mysqli_error($dbc));
         header('Location: public/dashboard.php');
 
