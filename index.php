@@ -42,7 +42,7 @@
 						</div>
 
 						<div>
-							<span class="icon fa-camera"></span>
+							<span class="icon fa-graduation-cap"></span>
 							<h3>Elementum</h3>
 							<p>Class aptent taciti ad litora</p>
 						</div>
