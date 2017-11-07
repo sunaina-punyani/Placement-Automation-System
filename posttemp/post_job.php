@@ -6,7 +6,7 @@
     session_start();
 
 		if (isset($_POST['submit'])) {
-      echo "submit pressed";
+      //echo "submit pressed";
 			// grab the data
 			$title = mysqli_real_escape_string($dbc, trim($_POST['title']));
 			$details = mysqli_real_escape_string($dbc, trim($_POST['details']));
