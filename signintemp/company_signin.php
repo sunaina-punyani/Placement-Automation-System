@@ -35,7 +35,7 @@
 								// $row = mysqli_fetch_array($result);
 								// $_SESSION['manager_id'] = $row['manager_id'];
 							//}
-							header('Location: ../studdash/dashboard.php');
+							header('Location: ../compdash/dashboard.php');
 						// }
 						// else {
 						// 	// account is not activated yet
