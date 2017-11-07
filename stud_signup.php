@@ -57,7 +57,7 @@
           //   $err_msg="Name is invalid";
           else {
             $first_name=ucfirst(strtolower($first_name));
-            $last_name=ucfirst(strtolower($lst_name));
+            $last_name=ucfirst(strtolower($last_name));
             $password=password_hash($password1,PASSWORD_BCRYPT);
 
             $query="INSERT INTO user (id,password,email,first_name,last_name,contact,programme,year,branch) VALUES ($id,'$password','$email','$first_name','$last_name','$contact','$programme','$year','$branch')";
@@ -147,16 +147,16 @@ function validate_name($name) {
           <legend><span class="number">2</span>Your profile</legend>
 
           <label for="name">ID:</label>
-          <input type="text" id="id"  placeholder="identity number" name="id" required value="<?php if(isset($id)) echo $id; ?>">
+          <input type="text" id="id"  name="id" required value="<?php if(isset($id)) echo $id; ?>">
 
           <label for="name">Programme:</label>
-          <input type="text" id="programme"  placeholder="eg. BTech" name="programme" required value="<?php if(isset($programme)) echo $programme; ?>">
+          <input type="text" id="programme" name="programme" required value="<?php if(isset($programme)) echo $programme; ?>">
 
           <label for="name">Year:</label>
-          <input type="text" id="year"  placeholder="current academic year" name="year" required value="<?php if(isset($year)) echo $year; ?>">
+          <input type="text" id="year"   name="year" required value="<?php if(isset($year)) echo $year; ?>">
 
           <label for="name">Branch:</label>
-          <input type="text" id="branch"  placeholder="branch" name="branch" required value="<?php if(isset($branch)) echo $branch; ?>">
+          <input type="text" id="branch"   name="branch" required value="<?php if(isset($branch)) echo $branch; ?>">
 
         </fieldset>
 
