@@ -16,7 +16,7 @@
 		<!-- Header -->
 			<header id="header">
 				<div class="inner">
-					<a href="index.html" class="logo"><strong>Projection</strong> by TEMPLATED</a>
+					<a href="index.html" class="logo"><strong>Training and Placement Office</strong> VJTI</a>
 					<nav id="nav">
 						<a href="index.html">Home</a>
 						<a href="generic.html">Generic</a>

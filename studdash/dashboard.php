@@ -39,7 +39,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#">Start Bootstrap</a>
+        <a class="navbar-brand" href="#">Dashboard</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -85,7 +85,7 @@
                   <div class="card-body">
                     <h2 class="card-title"><?php echo $row['title']; ?></h2>
                     <p class="card-text"><?php echo $row['details']; ?></p>
-                    <a href="#" class="btn btn-primary">Read More &rarr;</a>
+                    <a href="../post/job_post.php?id=<?php echo $row['id']; ?>" class="btn btn-primary">Read More &rarr;</a>
                   </div>
                   <!-- <div class="card-footer text-muted"> -->
                     <!-- Posted on January 1, 2017 -->
@@ -103,7 +103,7 @@
                   <div class="card-body">
                     <h2 class="card-title"><?php echo $row['title']; ?></h2>
                     <p class="card-text"><?php echo $row['details']; ?></p>
-                    <a href="#" class="btn btn-primary">Read More &rarr;</a>
+                    <a href="../post/job_post.php?id=<?php echo $row['id']; ?>" class="btn btn-primary">Read More &rarr;</a>
                   </div>
                   <!-- <div class="card-footer text-muted"> -->
                     <!-- Posted on January 1, 2017 -->
