@@ -7,11 +7,12 @@
               if(isset($_SESSION['id']))
               {
                   $student=$_SESSION['id'];
-                  $q="INSERT INTO application (stud_id,post_id) VALUES ($uni_id,$student)";
+                  $q="INSERT INTO application (stud_id,post_id) VALUES ($student, $uni_id)";
+                  //echo $q;
                    $result = mysqli_query($dbc,$q);
               }
-                 
- 
+
+
                 }
                 header('Location: studdash/dashboard.php');
 ?>
