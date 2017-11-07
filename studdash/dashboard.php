@@ -85,7 +85,7 @@
                   <div class="card-body">
                     <h2 class="card-title"><?php echo $row['title']; ?></h2>
                     <p class="card-text"><?php echo $row['details']; ?></p>
-                    <a href="../post/job_post.php?id=<?php echo $row['id']; ?>" class="btn btn-primary">Read More &rarr;</a>
+                    <!-- <a href="../post/job_post.php?id=<?php echo $row['id']; ?>" class="btn btn-primary">Read More &rarr;</a> -->
                   </div>
                   <!-- <div class="card-footer text-muted"> -->
                     <!-- Posted on January 1, 2017 -->
