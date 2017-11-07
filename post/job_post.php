@@ -117,7 +117,7 @@
         <!-- Sidebar Widgets Column -->
         <div class="col-md-4">
           <div class="card my-2" style="border: white">
-            <a href="../apply.php?id=<?php echo $id; ?>"><button class="btn btn-success btn-lg my-4">Apply</button></a>
+            <a href="../apply.php?id=<?php echo $id;?>"><button class="btn btn-success btn-lg my-4">Apply</button></a>
           </div>
 
         </div>
@@ -128,6 +128,7 @@
     </div>
     <!-- /.container -->
 
+              
     <!-- Footer -->
     <footer class="py-5 bg-dark">
       <div class="container">
